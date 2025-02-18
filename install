@@ -2,10 +2,40 @@
 
 DOTBOT_PATH="$HOME/personal/.dotbot"
 
+# Check which distribution is running
+if [ -f /etc/os-release ]; then
+    DISTRO=$(awk -F= '/^ID=/ {print $2}' /etc/os-release)
+    echo "Detected distribution: $DISTRO"
+else
+    echo "Unable to detect distribution."
+    exit 1
+fi
+
 # Check if Dotbot is installed, if not, clone it
 if [ ! -d "$DOTBOT_PATH" ]; then
     echo "Dotbot not found. Cloning into $DOTBOT_PATH..."
     git clone --recursive https://github.com/anishathalye/dotbot.git "$DOTBOT_PATH"
+fi
+
+# Install zsh if not already installed
+if ! command -v zsh &> /dev/null; then
+    echo "zsh not found. Installing zsh..."
+    if [ "$DISTRO" == "arch" ] || [ "$DISTRO" == "manjaro" ]; then
+        sudo pacman -S --noconfirm zsh
+    elif [ "$DISTRO" == "ubuntu" ] || [ "$DISTRO" == "debian" ]; then
+        sudo apt update && sudo apt install -y zsh
+    elif [ "$DISTRO" == "fedora" ]; then
+        sudo dnf install -y zsh
+    else
+        echo "Unsupported distribution: $DISTRO"
+        exit 1
+    fi
+fi
+
+# Change the default shell to zsh for the current user
+if [ "$SHELL" != "$(which zsh)" ]; then
+    echo "Changing default shell to zsh..."
+    chsh -s "$(which zsh)"
 fi
 
 # Run Dotbot
