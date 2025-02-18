@@ -1,0 +1,18 @@
+- defaults:
+    link:
+      create: true
+
+- clean: ['~', '~/.config']
+
+- link:
+    ~/.zshrc: ~/personal/dotfiles/zshrc/.zshrc
+    ~/.config/nvim: ~/personal/dotfiles/neovim
+
+- create:
+    - ~/.config
+    - ~/.scripts
+    - ~/.ssh
+
+- shell:
+    - curl -fsSL https://github.com/twchy.keys -o ~/.ssh/id_rsa.pub
+    - echo "Dotfiles setup complete!"
