@@ -15,4 +15,5 @@
 
 - shell:
     - curl -fsSL https://github.com/twchy.keys -o ~/.ssh/id_rsa.pub
+    - curl -sS https://starship.rs/install.sh | sh
     - echo "Dotfiles setup complete!"
