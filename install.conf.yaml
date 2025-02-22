@@ -16,4 +16,4 @@
 
 - shell:
     - curl -sS https://starship.rs/install.sh | sh -s -- --yes
-    - echo "Dotfiles setup complete!"
+    - echo "Dotfiles setup complete! Don't forget to run 'source ~/.zshrc' to apply changes."
