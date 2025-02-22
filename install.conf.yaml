@@ -7,6 +7,7 @@
 - link:
     ~/.zshrc: ~/personal/dotfiles/zshrc/.zshrc
     ~/.config/nvim: ~/personal/dotfiles/neovim
+    ~/.tmux.conf: ~/personal/dotfiles/tmux/.tmux.conf
 
 - create:
     - ~/.config
@@ -14,6 +15,5 @@
     - ~/.ssh
 
 - shell:
-    - curl -fsSL https://github.com/twchy.keys -o ~/.ssh/id_rsa.pub
     - curl -sS https://starship.rs/install.sh | sh -s -- --yes
     - echo "Dotfiles setup complete!"

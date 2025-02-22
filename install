@@ -17,25 +17,9 @@ if [ ! -d "$DOTBOT_PATH" ]; then
     git clone --recursive https://github.com/anishathalye/dotbot.git "$DOTBOT_PATH"
 fi
 
-# Install zsh if not already installed
-if ! command -v zsh &> /dev/null; then
-    echo "zsh not found. Installing zsh..."
-    if [ "$DISTRO" == "arch" ] || [ "$DISTRO" == "manjaro" ]; then
-        sudo pacman -S --noconfirm zsh
-    elif [ "$DISTRO" == "ubuntu" ] || [ "$DISTRO" == "debian" ]; then
-        sudo apt update && sudo apt install -y zsh
-    elif [ "$DISTRO" == "fedora" ]; then
-        sudo dnf install -y zsh
-    else
-        echo "Unsupported distribution: $DISTRO"
-        exit 1
-    fi
-fi
-
-# Change the default shell to zsh for the current user
-if [ "$SHELL" != "$(which zsh)" ]; then
-    echo "Changing default shell to zsh..."
-    chsh -s "$(which zsh)"
+if [ ! -d "$HOME/.tmux" ]; then
+    echo "tmux/tpm not found. clonding into ~/.tmux"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
 # Run Dotbot
