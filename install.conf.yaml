@@ -12,6 +12,7 @@
     ~/.tmux.conf: tmux/.tmux.conf
     ~/.config/nix: config/nix
     ~/.config/nix-darwin: config/nix-darwin
+    ~/Pictures/Wallpapers: wallpapers
 
 - create:
     - ~/.config
