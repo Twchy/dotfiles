@@ -33,6 +33,7 @@
         brews = [
           "ansible"
           "talosctl"
+          "tree"
           "kubectl"
           "k9s"
           "fastfetch"

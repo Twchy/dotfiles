@@ -64,24 +64,6 @@ darwin-rebuild switch --flake ~/.config/nix-darwin#Maximus --impure
 
 > ℹ️ The `--impure` flag is required to allow Neovim config to be loaded dynamically, so that config changes don't require rebuilding
 
-## 📁 Repository Structure
-
-```
-.
-├── config                 # Configuration files
-│   ├── nix                # Nix package manager config
-│   └── nix-darwin         # nix-darwin system configuration
-├── install                # Installation script
-├── install.conf.yaml      # Installation configuration
-├── neovim                 # Neovim configuration
-│   ├── init.lua           # Main Neovim config
-│   ├── lua/custom         # Custom plugins
-│   ├── lua/kickstart      # Plugin configurations
-│   └── README.md          # Neovim-specific README
-├── tmux                   # Tmux configuration
-└── zshrc                  # Zsh configuration
-```
-
 ## 🛠️ Key Features
 
 - **Declarative Configuration**: All system settings defined in code
