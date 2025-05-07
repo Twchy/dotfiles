@@ -1,0 +1,22 @@
+- defaults:
+    link:
+      create: true
+
+- clean: ['~', '~/.config']
+
+- link:
+    ~/.zshrc: zshrc/.zshrc
+    ~/.config/nvim: neovim
+    ~/.config/ghostty: ghostty
+    ~/.tmux.conf: tmux/.tmux.conf
+    ~/.config/nix: config/nix
+    ~/.config/nix-darwin: config/nix-darwin
+
+- create:
+    - ~/.config
+    - ~/.scripts
+    - ~/.ssh
+
+- shell:
+    - git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    - echo "Dotfiles setup complete! Don't forget to run 'source ~/.zshrc' to apply changes."
