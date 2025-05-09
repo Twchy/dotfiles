@@ -45,8 +45,10 @@
           "nvm"
           "btop"
           "tmux"
+          "lazygit"
         ];
         casks = [
+          "font-jetbrains-mono-nerd-font"
           "ghostty"
           "firefox"
           "discord"
@@ -75,6 +77,16 @@
         enableRosetta = true;
         user = "tw";
         autoMigrate = true;
+      };
+    system.defaults = {
+        dock.autohide = false;
+        dock.mru-spaces = false;
+        NSGlobalDomain._HIHideMenuBar = true;
+        finder.AppleShowAllExtensions = true;
+        screencapture.location = "~/Pictures/Screenshots";
+        NSGlobalDomain.AppleICUForce24HourTime = true;
+        NSGlobalDomain.AppleInterfaceStyle = "Dark";
+        NSGlobalDomain.KeyRepeat = 2;
       };
     };
   in {
