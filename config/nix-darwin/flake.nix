@@ -81,7 +81,6 @@
     system.defaults = {
         dock.autohide = false;
         dock.mru-spaces = false;
-        NSGlobalDomain._HIHideMenuBar = true;
         finder.AppleShowAllExtensions = true;
         screencapture.location = "~/Pictures/Screenshots";
         NSGlobalDomain.AppleICUForce24HourTime = true;
