@@ -12,7 +12,6 @@ eval "$(starship init zsh)"
 # Aliases
 alias drbs="darwin-rebuild switch --flake ~/.config/nix-darwin#Maximus"
 alias nde="nvim ~/.config/nix-darwin/flake.nix"
-alias cde="cat ~/.config/nix-darwin/flake.nix"
 alias dotfiles="cd ~/Personal/dotfiles"
 # Git
 alias gadd="git add"
