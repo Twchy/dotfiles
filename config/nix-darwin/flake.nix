@@ -61,6 +61,8 @@
           "cursor"
           "orbstack"
         ];
+        taps = [
+        ];
         onActivation = {
           upgrade = true;
           autoUpdate = true;
@@ -80,6 +82,7 @@
       };
     system.defaults = {
         dock.autohide = false;
+        NSGlobalDomain._HIHideMenuBar = false;
         dock.mru-spaces = false;
         finder.AppleShowAllExtensions = true;
         screencapture.location = "~/Pictures/Screenshots";
