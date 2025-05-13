@@ -38,7 +38,7 @@
           "k9s"
           "fastfetch"
           "python@3.10"
-          "python@3.11"
+          "python-tk@3.11"
           "python@3.12"
           "python@3.13"
           "starship"
@@ -46,6 +46,9 @@
           "btop"
           "tmux"
           "lazygit"
+          "tcl-tk"
+          "jpeg-turbo"
+          "gh"
         ];
         casks = [
           "font-jetbrains-mono-nerd-font"
@@ -90,6 +93,10 @@
         NSGlobalDomain.AppleInterfaceStyle = "Dark";
         NSGlobalDomain.KeyRepeat = 2;
       };
+
+      system.activationScripts.postUserActivation.text = ''
+        defaults write com.apple.finder FXPreferredGroupBy -string "Kind"
+      '';
     };
   in {
     darwinConfigurations."Maximus" = nix-darwin.lib.darwinSystem {
