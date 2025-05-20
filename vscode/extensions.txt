@@ -1,0 +1,6 @@
+catppuccin.catppuccin-vsc
+esbenp.prettier-vscode
+formulahendry.auto-close-tag
+formulahendry.auto-rename-tag
+kamikillerto.vscode-colorize
+vscode-icons-team.vscode-icons

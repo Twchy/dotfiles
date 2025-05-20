@@ -1,0 +1,25 @@
+#!/bin/bash
+
+DOTBOT_PATH="$HOME/Personal/.dotbot"
+
+# Check which distribution is running (works for both macOS and Linux)
+if [ "$(uname)" == "Darwin" ]; then
+    DISTRO="macOS"
+    echo "Detected operating system: $DISTRO"
+elif [ -f /etc/os-release ]; then
+    DISTRO=$(awk -F= '/^ID=/ {print $2}' /etc/os-release)
+    echo "Detected Linux distribution: $DISTRO"
+else
+    echo "Unable to detect operating system."
+    exit 1
+fi
+
+# Check if Dotbot is installed, if not, clone it
+if [ ! -d "$DOTBOT_PATH" ]; then
+    echo "Dotbot not found. Cloning into $DOTBOT_PATH..."
+    git clone --recursive https://github.com/anishathalye/dotbot.git "$DOTBOT_PATH"
+fi
+
+# Run Dotbot
+"$DOTBOT_PATH/bin/dotbot" -c install.conf.yaml
+
