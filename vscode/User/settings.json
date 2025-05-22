@@ -1,9 +1,0 @@
-{
-  "telemetry.feedback.enabled": false,
-  "telemetry.telemetryLevel": "off",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "workbench.colorTheme": "Catppuccin Mocha",
-  "workbench.iconTheme": "vscode-icons",
-  "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace, 'JetBrainsMono Nerd Font'"
-}

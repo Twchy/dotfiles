@@ -40,7 +40,6 @@
           "python@3.10"
           "python-tk@3.11"
           "python@3.12"
-          "python@3.13"
           "starship"
           "nvm"
           "btop"
@@ -62,7 +61,7 @@
           "mullvadvpn"
           "vlc"
           "orbstack"
-          "visual-studio-code"
+	  "cursor"
         ];
         taps = [
         ];
