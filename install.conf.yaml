@@ -11,12 +11,10 @@
     ~/.tmux.conf: tmux/.tmux.conf
     ~/.config/nix: config/nix
     ~/.config/nix-darwin: config/nix-darwin
-    ~/.config/Code/User: vscode/User
     ~/Pictures/Wallpapers: wallpapers
 
 - create:
     - ~/.config
-    - ~/.config/Code/User
     - ~/.scripts
     - ~/.ssh
 

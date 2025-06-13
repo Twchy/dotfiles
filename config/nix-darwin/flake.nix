@@ -48,6 +48,9 @@
           "tcl-tk"
           "jpeg-turbo"
           "rust"
+	  "cloudflared"
+	  "helm"
+	  "imagemagick"
         ];
         casks = [
           "font-jetbrains-mono-nerd-font"
@@ -62,6 +65,8 @@
           "vlc"
           "orbstack"
 	  "cursor"
+	  "google-chrome"
+	  "IINA"
         ];
         taps = [
         ];
