@@ -15,6 +15,7 @@
 
 - create:
     - ~/.config
+    - ~/Pictures/Screenshots
     - ~/.scripts
     - ~/.ssh
 
