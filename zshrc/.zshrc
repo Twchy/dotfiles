@@ -1,4 +1,3 @@
-
 export TERM=xterm-256color
 export PATH="/opt/homebrew/opt/python@3.11/libexec/bin:$PATH"
 #NVM
@@ -24,3 +23,7 @@ alias gpf="git push -f origin HEAD"
 export PATH="$PATH:/Volumes/Macintosh External/.lmstudio/bin"
 # End of LM Studio CLI section
 
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/tw/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
