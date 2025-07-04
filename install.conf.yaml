@@ -2,23 +2,29 @@
     link:
       create: true
 
-- clean: ['~', '~/.config']
+- clean:
+    - "~"
+    - "~/.config"
 
 - link:
     ~/.zshrc: zshrc/.zshrc
     ~/.config/ghostty: ghostty
     ~/.config/fastfetch: fastfetch
     ~/.tmux.conf: tmux/.tmux.conf
-    ~/.config/nix: config/nix
-    ~/.config/nix-darwin: config/nix-darwin
     ~/Pictures/Wallpapers: wallpapers
+    ~/.scripts: scripts
 
 - create:
     - ~/.config
     - ~/Pictures/Screenshots
-    - ~/.scripts
     - ~/.ssh
 
 - shell:
-    - git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-    - echo "Dotfiles setup complete! Don't forget to run 'source ~/.zshrc' to apply changes."
+    - description: "Installing TPM and Homebrew bundle with spinner"
+      command: "./scripts/install_with_spinner.sh"
+
+    - description: "Applying macOS defaults"
+      command: "./scripts/macos_defaults.sh"
+
+    - description: "Dotfiles setup complete"
+      command: 'echo "✅ Dotfiles setup complete! Run: source ~/.zshrc"'

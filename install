@@ -2,7 +2,7 @@
 
 DOTBOT_PATH="$HOME/Personal/.dotbot"
 
-# Check which distribution is running (works for both macOS and Linux)
+# Detect OS
 if [ "$(uname)" == "Darwin" ]; then
     DISTRO="macOS"
     echo "Detected operating system: $DISTRO"
@@ -14,12 +14,11 @@ else
     exit 1
 fi
 
-# Check if Dotbot is installed, if not, clone it
+# Clone Dotbot if needed
 if [ ! -d "$DOTBOT_PATH" ]; then
     echo "Dotbot not found. Cloning into $DOTBOT_PATH..."
     git clone --recursive https://github.com/anishathalye/dotbot.git "$DOTBOT_PATH"
 fi
 
-# Run Dotbot
+# Run Dotbot with the install config
 "$DOTBOT_PATH/bin/dotbot" -c install.conf.yaml
-
