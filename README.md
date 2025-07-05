@@ -14,19 +14,14 @@ This repository contains configurations for:
 
 ## 📋 Prerequisites
 
-Some packages and setup are required before installation:
+The installation script will automatically handle most prerequisites, but you'll need:
 
-### 1. Install Homebrew
+### 1. Git (for cloning the repository)
 
+Git should already be available on macOS, but if needed:
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-### 2. Ensure Git is available
-
-```bash
-# Homebrew should handle this, but just in case
-brew install git
+# On macOS, install via Xcode Command Line Tools
+xcode-select --install
 ```
 
 ## 🚀 Installation
@@ -45,6 +40,7 @@ cd ~/Personal/dotfiles
 ```
 
 This will:
+- **Automatically install Homebrew** if not already present
 - Install all packages from the `Brewfile`
 - Set up Tmux Plugin Manager (TPM)
 - Apply macOS system defaults
@@ -84,6 +80,24 @@ brew bundle --file=./Brewfile
 
 # Re-run the installation script to sync changes
 ./install
+```
+
+### Useful Aliases
+
+After installation, you'll have these helpful aliases available:
+
+```bash
+# Edit the Brewfile in Neovim
+brewedit
+
+# Sync Brewfile with installed packages and cleanup
+brew-sync
+
+# Navigate to dotfiles directory
+dotfiles
+
+# Navigate to development projects
+devprojects
 ```
 
 ## 📁 Configuration Files
