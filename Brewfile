@@ -1,5 +1,3 @@
-tap "homebrew/cask-fonts"
-
 # Brews (formulae)
 brew "ansible"
 brew "talosctl"
@@ -22,6 +20,7 @@ brew "cloudflared"
 brew "helm"
 brew "imagemagick"
 brew "lazydocker"
+brew "neovim"
 
 # Casks (apps)
 cask "font-jetbrains-mono-nerd-font"
@@ -33,7 +32,7 @@ cask "thunderbird"
 cask "steam"
 cask "rectangle"
 cask "vlc"
-cask "rancher"
 cask "cursor"
 cask "google-chrome"
 cask "iina"
+cask "orbstack"

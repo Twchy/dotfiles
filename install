@@ -6,6 +6,22 @@ DOTBOT_PATH="$HOME/Personal/.dotbot"
 if [ "$(uname)" == "Darwin" ]; then
     DISTRO="macOS"
     echo "Detected operating system: $DISTRO"
+
+    # Check for Homebrew
+    if ! command -v brew &> /dev/null; then
+        echo "Homebrew not found. Installing Homebrew..."
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+        # Add Homebrew to PATH (Apple Silicon or Intel)
+        if [[ -d "/opt/homebrew/bin" ]]; then
+            eval "$(/opt/homebrew/bin/brew shellenv)"
+        elif [[ -d "/usr/local/bin" ]]; then
+            eval "$(/usr/local/bin/brew shellenv)"
+        fi
+    else
+        echo "Homebrew is already installed."
+    fi
+
 elif [ -f /etc/os-release ]; then
     DISTRO=$(awk -F= '/^ID=/ {print $2}' /etc/os-release)
     echo "Detected Linux distribution: $DISTRO"
@@ -22,3 +38,4 @@ fi
 
 # Run Dotbot with the install config
 "$DOTBOT_PATH/bin/dotbot" -c install.conf.yaml
+

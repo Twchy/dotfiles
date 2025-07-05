@@ -9,8 +9,8 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(starship init zsh)"
 
 # Aliases
-alias drbs="darwin-rebuild switch --flake ~/.config/nix-darwin#Maximus"
-alias nde="nvim ~/.config/nix-darwin/flake.nix"
+alias brewedit="nvim ~/Personal/dotfiles/Brewfile"
+alias brew-sync="HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --file=~/Personal/dotfiles/Brewfile --no-upgrade && brew bundle cleanup --file=~/Personal/dotfiles/Brewfile --force"
 alias dotfiles="cd ~/Personal/dotfiles"
 alias devprojects="cd ~/Development/Projects/"
 # Git
