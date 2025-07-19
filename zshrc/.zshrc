@@ -18,12 +18,3 @@ alias gadd="git add"
 alias gc="git commit -m"                                                                                              alias gcm="git commit --amend"
 alias gp="git push origin HEAD"
 alias gpf="git push -f origin HEAD"
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Volumes/Macintosh External/.lmstudio/bin"
-# End of LM Studio CLI section
-
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/tw/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
