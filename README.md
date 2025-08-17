@@ -5,6 +5,7 @@ A collection of my personal dotfiles for setting up the perfect development envi
 ## ✨ Overview
 
 This repository contains configurations for:
+
 - **Dotbot** for configuration management
 - **Homebrew** for package management
 - **Ghostty** terminal emulator
@@ -19,6 +20,7 @@ The installation script will automatically handle most prerequisites, but you'll
 ### 1. Git (for cloning the repository)
 
 Git should already be available on macOS, but if needed:
+
 ```bash
 # On macOS, install via Xcode Command Line Tools
 xcode-select --install
@@ -40,6 +42,7 @@ cd ~/Personal/dotfiles
 ```
 
 This will:
+
 - **Automatically install Homebrew** if not already present
 - Install all packages from the `Brewfile`
 - Set up Tmux Plugin Manager (TPM)
@@ -91,7 +94,7 @@ After installation, you'll have these helpful aliases available:
 brewedit
 
 # Sync Brewfile with installed packages and cleanup
-brew-sync
+brewsync
 
 # Navigate to dotfiles directory
 dotfiles
@@ -112,9 +115,9 @@ devprojects
 ## 🎨 Customization
 
 The setup includes:
+
 - Dark mode macOS defaults
 - Custom dock behavior
 - Screenshot location configuration
 - 24-hour time format
 - Optimized key repeat settings
-
