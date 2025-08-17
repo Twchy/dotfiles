@@ -8,6 +8,7 @@
 
 - link:
     ~/.zshrc: zshrc/.zshrc
+    ~/.config/nvim: neovim
     ~/.config/ghostty: ghostty
     ~/.config/fastfetch: fastfetch
     ~/.tmux.conf: tmux/.tmux.conf
@@ -20,9 +21,6 @@
     - ~/.ssh
 
 - shell:
-    - description: "Installing TPM and Homebrew bundle with spinner"
-      command: "./scripts/install_with_spinner.sh"
-
     - description: "Applying macOS defaults"
       command: "./scripts/macos_defaults.sh"
 
