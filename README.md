@@ -9,8 +9,10 @@ This repository contains configurations for:
 - **Dotbot** for configuration management
 - **Homebrew** for package management
 - **Ghostty** terminal emulator
+- **Neovim** modern text editor
 - **Tmux** terminal multiplexer
 - **Zsh** shell with custom configuration
+- **Starship** cross-shell prompt
 - **Fastfetch** system information display
 
 ## 📋 Prerequisites
@@ -44,16 +46,18 @@ cd ~/Personal/dotfiles
 This will:
 
 - **Automatically install Homebrew** if not already present
-- Install all packages from the `Brewfile`
-- Set up Tmux Plugin Manager (TPM)
-- Apply macOS system defaults
-- Link all configuration files to their proper locations
+- **Install Dotbot** for configuration management
+- **Apply macOS system defaults** (including Finder sort by kind)
+- **Link all configuration files** to their proper locations
+- **Set up custom wallpaper** automatically
 
-### 3. Restart your shell
+### 3. Complete the setup
 
 ```bash
-source ~/.zshrc
+source ~/.zshrc && brewsync
 ```
+
+This will reload your shell configuration and install all Homebrew packages from the Brewfile.
 
 ## 🛠️ Key Features
 
@@ -101,6 +105,15 @@ dotfiles
 
 # Navigate to development projects
 devprojects
+
+# Navigate to work directory
+workdev
+
+# Git shortcuts
+gadd      # git add
+gc        # git commit -m
+gcm       # git commit --amend
+gp        # git push
 ```
 
 ## 📁 Configuration Files
@@ -117,7 +130,9 @@ devprojects
 The setup includes:
 
 - Dark mode macOS defaults
-- Custom dock behavior
-- Screenshot location configuration
+- Auto-hiding dock with MRU spaces disabled
+- Finder sorted by kind by default
+- Custom wallpaper setup
+- Screenshot location configuration (~/Pictures/Screenshots)
 - 24-hour time format
 - Optimized key repeat settings
