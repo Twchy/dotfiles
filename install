@@ -1,41 +1,91 @@
 #!/bin/bash
 
+set -e
+
+# Configuration
 DOTBOT_PATH="$HOME/Personal/.dotbot"
+DOTBOT_REPO="https://github.com/anishathalye/dotbot.git"
+HOMEBREW_INSTALL="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
 
-# Detect OS
-if [ "$(uname)" == "Darwin" ]; then
-    DISTRO="macOS"
-    echo "Detected operating system: $DISTRO"
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
 
-    # Check for Homebrew
+# Helper functions
+log_info() {
+    echo -e "${BLUE}→${NC} $1"
+}
+
+log_success() {
+    echo -e "${GREEN}✓${NC} $1"
+}
+
+log_error() {
+    echo -e "${RED}✗${NC} $1"
+    exit 1
+}
+
+# OS Detection
+detect_os() {
+    if [ "$(uname)" == "Darwin" ]; then
+        DISTRO="macOS"
+        log_info "Detected operating system: $DISTRO"
+        setup_macos
+    elif [ -f /etc/os-release ]; then
+        DISTRO=$(awk -F= '/^ID=/ {print $2}' /etc/os-release)
+        log_info "Detected Linux distribution: $DISTRO"
+    else
+        log_error "Unable to detect operating system"
+    fi
+}
+
+# macOS Setup
+setup_macos() {
     if ! command -v brew &> /dev/null; then
-        echo "Homebrew not found. Installing Homebrew..."
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-        # Add Homebrew to PATH (Apple Silicon or Intel)
+        log_info "Installing Homebrew..."
+        /bin/bash -c "$(curl -fsSL $HOMEBREW_INSTALL)"
+        
+        # Configure Homebrew PATH
         if [[ -d "/opt/homebrew/bin" ]]; then
             eval "$(/opt/homebrew/bin/brew shellenv)"
         elif [[ -d "/usr/local/bin" ]]; then
             eval "$(/usr/local/bin/brew shellenv)"
         fi
+        log_success "Homebrew installed"
     else
-        echo "Homebrew is already installed."
+        log_success "Homebrew already installed"
     fi
+}
 
-elif [ -f /etc/os-release ]; then
-    DISTRO=$(awk -F= '/^ID=/ {print $2}' /etc/os-release)
-    echo "Detected Linux distribution: $DISTRO"
-else
-    echo "Unable to detect operating system."
-    exit 1
-fi
+# Dotbot Setup
+setup_dotbot() {
+    if [ ! -d "$DOTBOT_PATH" ]; then
+        log_info "Installing Dotbot..."
+        git clone --recursive "$DOTBOT_REPO" "$DOTBOT_PATH"
+        log_success "Dotbot installed"
+    else
+        log_success "Dotbot already installed"
+    fi
+}
 
-# Clone Dotbot if needed
-if [ ! -d "$DOTBOT_PATH" ]; then
-    echo "Dotbot not found. Cloning into $DOTBOT_PATH..."
-    git clone --recursive https://github.com/anishathalye/dotbot.git "$DOTBOT_PATH"
-fi
+# Main execution
+main() {
+    echo -e "${BLUE}═══════════════════════════════════${NC}"
+    echo -e "${BLUE}     Dotfiles Installation${NC}"
+    echo -e "${BLUE}═══════════════════════════════════${NC}"
+    echo
+    
+    detect_os
+    setup_dotbot
+    
+    log_info "Running Dotbot configuration..."
+    "$DOTBOT_PATH/bin/dotbot" -c install.conf.yaml
+    
+    echo
+    log_success "Installation complete!"
+}
 
-# Run Dotbot with the install config
-"$DOTBOT_PATH/bin/dotbot" -c install.conf.yaml
+main "$@"
 
