@@ -11,6 +11,7 @@
     ~/.config/nvim: neovim
     ~/.config/ghostty: ghostty
     ~/.config/fastfetch: fastfetch
+    ~/.config/atuin: atuin
     ~/.tmux.conf: tmux/.tmux.conf
     ~/Pictures/Wallpapers: wallpapers
     ~/.scripts: scripts

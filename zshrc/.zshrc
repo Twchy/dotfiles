@@ -23,3 +23,11 @@ alias gadd="git add"
 alias gc="git commit -m"
 alias gcm="git commit --amend"
 alias gp="git push"
+eval "$(/Users/tw/.local/bin/mise activate zsh)"
+
+# opencode
+export PATH=/Users/tw/.opencode/bin:$PATH
+
+# Task Master aliases added on 11/09/2025
+alias tm='task-master'
+alias taskmaster='task-master'
