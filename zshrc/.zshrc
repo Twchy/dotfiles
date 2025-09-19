@@ -5,9 +5,11 @@ export PATH="/opt/homebrew/opt/python@3.11/libexec/bin:$PATH"
 # Starship prompt
 eval "$(starship init zsh)"
 
-# Node version manager
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# Node-Manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "$(brew --prefix nvm)/nvm.sh" ] && \. "$(brew --prefix nvm)/nvm.sh"
+[ -s "$(brew --prefix nvm)/etc/bash_completion.d/nvm" ] && \. "$(brew --prefix nvm)/etc/bash_completion.d/nvm"
+
 
 # Homebrew
 alias brewedit="nvim ~/Personal/dotfiles/Brewfile"
@@ -15,7 +17,7 @@ alias brewsync="HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --file=~/Personal/dotfiles
 
 # Quick navigation
 alias dotfiles="cd ~/Personal/dotfiles"
-alias devprojects="cd ~/Development/Projects/"
+alias devprojects="cd ~/Dev/Projects/"
 alias workdev="cd ~/Work"
 
 # Git shortcuts
@@ -23,11 +25,10 @@ alias gadd="git add"
 alias gc="git commit -m"
 alias gcm="git commit --amend"
 alias gp="git push"
+
+
 eval "$(/Users/tw/.local/bin/mise activate zsh)"
 
-# opencode
-export PATH=/Users/tw/.opencode/bin:$PATH
-
-# Task Master aliases added on 11/09/2025
-alias tm='task-master'
-alias taskmaster='task-master'
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/tw/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
